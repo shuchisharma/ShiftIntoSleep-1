@@ -26,8 +26,12 @@ import android.support.v4.app.Fragment;
  * Created by cidseuser on 6/10/2016.
  */
 public class AlarmsFragment extends Fragment {
-    String time1 = "2016-14-06 22:00:00";
-    String time2 = "2016-15-06 07:30:00";
+    String date1 = "2016-14-06 22:00:00";
+    String date2 = "2016-15-06 07:30:00";
+    int wake_hour = 6;
+    int wake_minute = 30;
+    int arrive_hour = 22;
+    int arrive_minute = 22;
     Button btnSetAlarm;
     TextView tvWhentoWake;
     AlarmManager alarmManager;
@@ -57,19 +61,9 @@ public class AlarmsFragment extends Fragment {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-dd-mm HH:mm:ss");
         Date d1 = null,d2 = null;
 
-        try {
-            d1 = format.parse(time1);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        try {
-
-            d2 = format.parse(time2);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        long difference = d2.getTime() - d1.getTime();
-        long totalSleep =  TimeUnit.MILLISECONDS.toMinutes(difference);
+        long hour_difference = (wake_hour * 60 + wake_minute) - (arrive_hour * 60 - arrive_minute);
+        if ()
+        long totalSleep =  ;
 
         Log.e("Total Sleep : ",""+totalSleep);
         Toast.makeText(getActivity(),"Total Sleep : " + totalSleep,Toast.LENGTH_LONG).show();
